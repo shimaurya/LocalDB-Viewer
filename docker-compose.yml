@@ -1,0 +1,11 @@
+services:
+  localdb-viewer:
+    build: .
+    container_name: localdb-viewer
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/data
+    environment:
+      LDV_SECRET: ${LDV_SECRET:-dev-only-change-me}
+    restart: unless-stopped
